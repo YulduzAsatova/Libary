@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New_User</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-2">
+      <p><a class="btn btn-outline-success" href="/auth/users">
+          <i class="bi bi-plus-square-fill"></i> Back</a>
+      </p>
+    </div>
+    <div class="col-6">
+      <h2>Add new User</h2>
+      <br>
+      <form action="#" th:action="@{/auth/user}"  method="POST">
+        <div class="form-group">
+          <div class="mb-3">
+            <input class="form-control" type="text" name="firstName" placeholder="Firstname">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="text" name="lastName" placeholder="Lastname">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="email" name="email" placeholder="Email">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="text" name="username" placeholder="Username">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="text" name="phoneNumber" placeholder="PhoneNumber">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="text" name="password" placeholder="Password">
+          </div>
+          <br>
+          <button type="submit"  class="btn btn-outline-success">
+            <i class="bi-plus-square-fill"></i>Add User
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+<script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"/>
+
+</body>
+</html>

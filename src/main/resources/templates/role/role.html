@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Role Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2">
+            <p><a class="btn btn-outline-success" href="/role">
+                <i class="bi bi-plus-square-fill"></i> Back</a>
+            </p>
+        </div>
+        <!-- <h1 th:text="${role.name}"></h1>-->
+        <div class="container">
+            <form>
+                <select>
+                    <option th:text="${permission.name}" th:each="permission:${roleResponseDto.excludedPermissions}"></option>
+                </select>
+                <button type="submit">Add Permission</button>
+            </form>
+
+            <h1>Permissions List</h1>
+            <hr/>
+            <br>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="permission : ${roleResponseDto.role.permissions}">
+                    <td>
+                        <div class="bnt btn-group-sm" role="group">
+                            <a class="btn btn-outline-danger" th:href="@{/permission/delete/{id}(id=${permission.id})}">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                    <td th:text="${permission.id}"></td>
+                    <td th:text="${permission.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"/>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update_User</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2">
+            <p><a class="btn btn-outline-success" href="/auth/users">
+                <i class="bi bi-plus-square-fill"></i> Back</a>
+            </p>
+        </div>
+        <div class="col-6">
+            <h2>Update User</h2>
+            <br>
+            <form action="#" th:action="@{/auth/user/{id}(id=${user.id})}" th:object="${user}" method="POST">
+                <div class="form-group">
+                    <input type="hidden" name="id" th:value="${user.id}">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="firstName" th:value="${user.firstName}">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="lastName" th:value="${user.lastName}">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="email" th:value="${user.email}">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="username" th:value="${user.username}">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="phoneNumber"  th:value="${user.phoneNumber}">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="hidden" name="password"  th:value="${user.password}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role </label>
+                        <select name="role" class="form-control" id="role" th:value="${user.role}">
+                            <option value="USER">User</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" class="form-control" id="status" th:value="${user.status}">
+                            <option value="IN_ACTIVE">In_active</option>
+                            <option value="ACTIVE">Active</option>
+                            <option value="BLOCKED">Blocked</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button type="submit"  class="btn btn-outline-success">
+                        <i class="bi-plus-square-fill"></i>Update
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"/>
+
+</body>
+</html>
