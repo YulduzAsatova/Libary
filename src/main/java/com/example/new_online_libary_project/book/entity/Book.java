@@ -26,7 +26,6 @@ public class Book {
     private String language;
     @Column(nullable = false)
     private String publisher;
-    @CreationTimestamp
     private String year;
     private Integer pages;
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
